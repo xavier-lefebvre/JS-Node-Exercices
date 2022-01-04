@@ -3,12 +3,12 @@ const http = require("http");
 const host = 'localhost';
 const port = 8000;
 
-const requestListener = function (req, res) {
+const requestListener = function (req, res) { // 
     res.setHeader("Content-Type", "application/json");
     switch (req.url) {
         case "/books":
-            res.writeHead(200);
-            res.end(books);
+            res.writeHead(200); // set the HTTP status code of the response, in this case 200 is 'ok'
+            res.end(books); // write the http response back to the client who requested it.
             break
         case "/authors":
             res.writeHead(200);
@@ -16,7 +16,7 @@ const requestListener = function (req, res) {
             break
         default:
             res.writeHead(404);
-            res.end(JSON.stringify({error:"Resource not found"}));
+            res.end(JSON.stringify({error:"Resource not found"})); // stringify() convert a javascript value in JSON string.
     }
 };
 
